@@ -18,68 +18,12 @@
           "image_name": "robotarm-simulator",
           "image_tag": "poc",
           "registry_addr": null
-        },
-        "inputCount": 1,
-        "paramOrder": [
-          "type",
-          "provider_bpn",
-          "provider_url",
-          "asset_id",
-          "representation",
-          "platforms",
-          "image_name",
-          "image_tag",
-          "registry_addr"
-        ],
-        "paramTypes": {
-          "type": "string",
-          "provider_bpn": "string",
-          "provider_url": "string",
-          "asset_id": "string",
-          "representation": "string",
-          "platforms": "array",
-          "image_name": "string",
-          "image_tag": "string",
-          "registry_addr": "string"
-        },
-        "outputCount": 1,
-        "templateKey": "container",
-        "lockedParams": [
-          "type"
-        ],
-        "paramOptions": {
-          "representation": [
-            "dockerfile",
-            "source_archive",
-            "docker_archive",
-            "oci_archive"
-          ],
-          "platforms": [
-            "linux/amd64",
-            "linux/arm64",
-            "windows/amd64",
-            "windows/arm64"
-          ]
-        },
-        "isTemplateNode": true,
-        "nullableParams": [
-          "registry_addr"
-        ],
-        "paramValidators": {
-          "provider_url": "url"
         }
-      },
-      "type": "custom",
-      "dragging": false,
-      "measured": {
-        "width": 180,
-        "height": 110
       },
       "position": {
         "x": -92.88419043360128,
         "y": -174.35878850328044
-      },
-      "selected": false
+      }
     },
     {
       "id": "save_to_file-1789053985743",
@@ -88,39 +32,12 @@
         "params": {
           "type": "save_to_file",
           "file_path": "robot/robot.zip"
-        },
-        "inputCount": 2,
-        "paramOrder": [
-          "type",
-          "file_path"
-        ],
-        "paramTypes": {
-          "type": "string",
-          "file_path": "string"
-        },
-        "outputCount": 1,
-        "templateKey": "save_to_file",
-        "lockedParams": [
-          "type"
-        ],
-        "paramOptions": {},
-        "isTemplateNode": true,
-        "nullableParams": [],
-        "paramValidators": {
-          "file_path": "path"
         }
-      },
-      "type": "custom",
-      "dragging": false,
-      "measured": {
-        "width": 180,
-        "height": 110
       },
       "position": {
         "x": -325.1338378258013,
         "y": 13.332207460753708
-      },
-      "selected": false
+      }
     },
     {
       "id": "unzipper-1789053988358",
@@ -130,89 +47,12 @@
           "type": "unzipper",
           "target_zip": "robot/robot.zip",
           "extract_directory": "robot"
-        },
-        "inputCount": 1,
-        "paramOrder": [
-          "type",
-          "target_zip",
-          "extract_directory"
-        ],
-        "paramTypes": {
-          "type": "string",
-          "target_zip": "string",
-          "extract_directory": "string"
-        },
-        "outputCount": 1,
-        "templateKey": "unzipper",
-        "lockedParams": [
-          "type"
-        ],
-        "paramOptions": {},
-        "isTemplateNode": true,
-        "nullableParams": [],
-        "paramValidators": {
-          "target_zip": "path",
-          "extract_directory": "path"
         }
-      },
-      "type": "custom",
-      "dragging": false,
-      "measured": {
-        "width": 180,
-        "height": 110
       },
       "position": {
         "x": -93.30500798278644,
         "y": 12.999999999999957
-      },
-      "selected": false
-    },
-    {
-      "id": "static_file-1789054940729",
-      "data": {
-        "label": "ur5e_simulation_model.zip",
-        "params": {
-          "type": "dlr.static_file",
-          "provider_bpn": "BPNLM67H9AVUVPTD",
-          "provider_url": "https://vision-x-api.base-x-ecosystem.org/connectors/dlr-rox-conn/cp/protocol",
-          "asset_id": "468f2f75-21dd-4afa-8c3a-f87a8b782184"
-        },
-        "inputCount": 1,
-        "paramOrder": [
-          "type",
-          "provider_bpn",
-          "provider_url",
-          "asset_id"
-        ],
-        "paramTypes": {
-          "type": "string",
-          "provider_bpn": "string",
-          "provider_url": "string",
-          "asset_id": "string"
-        },
-        "outputCount": 2,
-        "templateKey": "static_file",
-        "lockedParams": [
-          "type"
-        ],
-        "paramOptions": {},
-        "isTemplateNode": true,
-        "nullableParams": [],
-        "paramValidators": {
-          "provider_url": "url"
-        }
-      },
-      "type": "custom",
-      "dragging": false,
-      "measured": {
-        "width": 180,
-        "height": 110
-      },
-      "position": {
-        "x": -564.6429790000327,
-        "y": 12.573255538309837
-      },
-      "selected": false
+      }
     },
     {
       "id": "bash_command-1789055057553",
@@ -222,75 +62,54 @@
           "type": "bash_command",
           "command": "docker run --rm \\\n  --mount type=bind,src=\"${ARTIFACT_HOST_ROOT}/robot/\",dst=/robot,readonly \\\n  --mount type=bind,src=\"${ARTIFACT_HOST_ROOT}\",dst=/output \\\n  robotarm-simulator:poc",
           "timeout_seconds": null
-        },
-        "inputCount": 1,
-        "paramOrder": [
-          "type",
-          "command",
-          "timeout_seconds"
-        ],
-        "paramTypes": {
-          "type": "string",
-          "command": "string",
-          "timeout_seconds": "number"
-        },
-        "outputCount": 1,
-        "templateKey": "bash_command",
-        "lockedParams": [
-          "type"
-        ],
-        "paramOptions": {},
-        "isTemplateNode": true,
-        "nullableParams": [
-          "timeout_seconds"
-        ],
-        "paramValidators": {}
-      },
-      "type": "custom",
-      "dragging": false,
-      "measured": {
-        "width": 180,
-        "height": 110
+        }
       },
       "position": {
         "x": 178.526066897281,
         "y": -87.58252112705611
+      }
+    },
+    {
+      "id": "static_file-1790178290598",
+      "data": {
+        "label": "ur5e_simulation_model.zip",
+        "params": {
+          "type": "dlr.static_file",
+          "provider_bpn": "BPNLM67H9AVUVPTD",
+          "provider_url": "https://vision-x-api.base-x-ecosystem.org/connectors/dlr-rox-conn/cp/protocol",
+          "asset_id": "468f2f75-21dd-4afa-8c3a-f87a8b782184"
+        }
       },
-      "selected": false
+      "position": {
+        "x": -559.8361734695995,
+        "y": 13.388885527551423
+      }
     }
   ],
   "edges": [
     {
-      "id": "edge-save_to_file-1789053985743-source:dep-unzipper-1789053988358-target:dep-1789054001126",
       "source": "save_to_file-1789053985743",
       "target": "unzipper-1789053988358",
-      "animated": true,
       "sourceHandle": "dep",
       "targetHandle": "dep"
     },
     {
-      "id": "edge-static_file-1789054940729-source:output_0-save_to_file-1789053985743-target:input_0-1789054944257",
-      "source": "static_file-1789054940729",
-      "target": "save_to_file-1789053985743",
-      "animated": true,
-      "sourceHandle": "output_0",
-      "targetHandle": "input_0"
-    },
-    {
-      "id": "edge-container-1789053957702-source:dep-bash_command-1789055057553-target:dep-1789055063337",
       "source": "container-1789053957702",
       "target": "bash_command-1789055057553",
-      "animated": true,
       "sourceHandle": "dep",
       "targetHandle": "dep"
     },
     {
-      "id": "edge-unzipper-1789053988358-source:dep-bash_command-1789055057553-target:dep-1789132833753",
       "source": "unzipper-1789053988358",
       "target": "bash_command-1789055057553",
-      "animated": true,
       "sourceHandle": "dep",
       "targetHandle": "dep"
+    },
+    {
+      "source": "static_file-1790178290598",
+      "target": "save_to_file-1789053985743",
+      "sourceHandle": "output_0",
+      "targetHandle": "input_0"
     }
   ]
 }
